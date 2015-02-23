@@ -1,0 +1,13 @@
+<apex:component id="accountSearchComponent">
+    <apex:attribute name="searchFields" description="Search Fields" type="CMP_AccountSearchFields" />
+    <apex:attribute name="searchAction" description="Search Action" type="ApexPages.Action" />
+    <apex:pageBlock id="block">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value=" Go! " action="{!searchAction}" reRender="form" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="section">
+                <apex:inputText value="{!searchFields.accountName}" label="{!$ObjectType.Account.Fields.Name.Label}" />
+                <apex:inputText value="{!searchFields.accountNumber}" label="{!$ObjectType.Account.Fields.AccountNumber.Label}" />
+            </apex:pageblockSection>
+        </apex:pageBlock>
+</apex:component>

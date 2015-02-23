@@ -1,0 +1,20 @@
+<apex:page controller="CMP_AccountListController" showHeader="true" sidebar="false" tabStyle="Account" id="page">
+    <div id="vf-page">
+        <apex:sectionHeader title="Force.com" subtitle="AccountList" />
+        <apex:form id="form">
+            <!-- Search Fields Component -->
+            <c:CMP_AccountSearch searchFields="{!searchFields}" searchAction="{!doSearch}" id="cmp_accountSearch" />
+            <!-- Search Result -->
+            <apex:pageBlock id="resultBlock">
+                <apex:pageBlockTable value="{!accounts}" var="item">
+                    <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                        <apex:outputField value="{!item.Name}" />
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Account.Fields.AccountNumber.Label}">
+                        <apex:outputField value="{!item.AccountNumber}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:form>
+    </div>
+</apex:page>
